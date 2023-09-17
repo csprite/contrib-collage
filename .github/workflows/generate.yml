@@ -8,7 +8,7 @@ on:
     - cron: '0 */24 * * *'
 
 jobs:
-  lint:
+  generate:
     permissions:
       pages: write
       id-token: write
