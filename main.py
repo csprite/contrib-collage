@@ -57,7 +57,7 @@ with urllib.request.urlopen(f"https://api.github.com/repos/{REPOSITORY}/stats/co
 			os.system(f"ffmpeg -y -i {file} {newFile}")
 			Files[i] = newFile
 
-	width=GRID_WIDTH
+	width=numImgs if GRID_WIDTH >= numImgs else GRID_WIDTH
 	height=math.ceil(numImgs / width)
 	print(f"Grid: {width}x{height} - {numImgs}")
 	os.system(f"montage {' '.join(Files)} -geometry +10+10 -tile {width}x{height} -resize 256x256 contributors.png")
