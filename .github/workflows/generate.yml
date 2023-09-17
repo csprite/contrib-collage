@@ -1,11 +1,11 @@
 name: Generate Collage
 on:
-	workflow_dispatch:
+  workflow_dispatch:
   push:
     branches: [ master ]
-	schedule:
-		# Run the workflow every 24 hours - https://crontab.guru/#0_*/24_*_*_*
-		- cron: '0 */24 * * *'
+  schedule:
+    # Run the workflow every 24 hours - https://crontab.guru/#0_*/24_*_*_*
+    - cron: '0 */24 * * *'
 
 jobs:
   lint:
@@ -33,8 +33,8 @@ jobs:
         mv ./contributors.png dist/csprite-languages.png
 
     - name: Deploy to GitHub Pages
-			uses: peaceiris/actions-gh-pages@v3
-			with:
-				github_token: ${{ secrets.GITHUB_TOKEN }}
-				publish_dir: ./dist
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
 
